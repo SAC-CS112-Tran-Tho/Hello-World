@@ -3,7 +3,7 @@
 package pkg0224e;
 import java.util.Scanner;
 
-public class Main
+public class ClassWork0224e
 {
    public static void main(String[] args)
    {
