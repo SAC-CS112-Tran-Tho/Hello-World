@@ -25,9 +25,9 @@ public class ClassWork0224f {
       num2 = input.nextInt(); // read second number from user
       
       sum = num1 + num2; // add numbers, then store total in sum
-      sub = num1 - num2;
-      prod = num1 * num2;
-      quo = num1 / num2;
+      sub = num1 - num2; // subtract numbers, then store total in sub
+      prod = num1 * num2; // multiply numbers, then store total in prod
+      quo = num1 / num2; // divide numbers, then store total in quo
       
       // display
       System.out.printf("Hello, you entered " + num1 + " and " + num2);
