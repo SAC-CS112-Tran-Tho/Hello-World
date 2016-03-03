@@ -2,7 +2,7 @@
 package classwork02.pkg24;
 
 // Tho Tran
-public class ClassWork0224 
+public class ClassWork0224a
 {
    public static void main(String[] args) 
    {
