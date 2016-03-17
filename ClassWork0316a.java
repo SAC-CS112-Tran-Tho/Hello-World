@@ -22,10 +22,10 @@ public class ClassWork0316a
       System.out.printf("The random number is: " + computerNum + "\n");
       
       if (number > computerNum)
-           System.out.print("The number you entered is too big!\n");
+         System.out.print("The number you entered is too big!\n");
       if (number < computerNum)
-           System.out.print("The number you entered is too small!\n");
+         System.out.print("The number you entered is too small!\n");
       if (number == computerNum)
-           System.out.print("The number you entered is correct!\n");
+         System.out.print("The number you entered is correct!\n");
    }
 }
