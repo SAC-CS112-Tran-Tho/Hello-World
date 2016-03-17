@@ -25,10 +25,8 @@ public class ClassWork0316c
          System.out.print("The number you entered is too big!\n");
       else if (number < computerNum)
          System.out.print("The number you entered is too small!\n");
-      else if (number == computerNum)
-         System.out.print("The number you entered is correct!\n");
       else
-         System.out.print("The number you entered was not within range!\n");
+         System.out.print("The number you entered is correct!\n");
    }
    
 }
