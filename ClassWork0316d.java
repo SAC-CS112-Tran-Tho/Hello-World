@@ -21,17 +21,16 @@ public class ClassWork0316d
       
       System.out.printf("The random number is: " + computerNum + "\n");
       
-      if ((number == computerNum) && (number == 7))
+      if ((number > computerNum) || (number < computerNum))
       {
-         System.out.print("The number you entered is correct! Lucky 7!\n");
-      }
-      else if ((number > computerNum) || (number < computerNum))
-      {
-         System.out.printf("The number you entered is incorrect! Try again!\n");
+         if (number > computerNum)
+            System.out.print("The number you entered is too big!\n");
+         else
+            System.out.print("The number you entered is too small!\n");
       }
       else
       {
-         System.out.print("The number you entered was not within range!\n");
+         System.out.print("The number is correct!\n");
       }
    }
    
