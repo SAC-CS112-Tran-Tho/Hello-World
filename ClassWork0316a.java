@@ -16,7 +16,7 @@ public class ClassWork0316a
       
       computerNum = 1 +(int)(Math.random()*10);
       
-      System.out.print("Enter a number: ");
+      System.out.print("Enter a number (0-10): ");
       number = input.nextInt();
       
       System.out.printf("The random number is: " + computerNum + "\n");
