@@ -15,7 +15,7 @@ public class HW5_Calculator
       int num2;
       String operator;
       
-      System.out.printf("Which math operator do you want to perform?\n" +
+      System.out.printf("Which math operation do you want to perform?\n" +
         "(Enter +(addition), -(subtraction), /(division), *(multiplication): ");
       operator = input.nextLine();
       
