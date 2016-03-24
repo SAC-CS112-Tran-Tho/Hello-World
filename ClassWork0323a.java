@@ -14,7 +14,7 @@ public class ClassWork0323a
       int counter = 1;
       
       while (counter < 4)
-      {
+      {  // program generates a random number from 1-10
          computerNum = 1 +(int)(Math.random()*10);
          
         // prompt user to enter a number
