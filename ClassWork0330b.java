@@ -31,6 +31,6 @@ public class ClassWork0330b
       System.out.print("You are old enough to drink!\n");
     else
       System.out.printf("Sorry, you are not old enough to drink. You must wait " + (legalAge - userAge) + 
-               " more years to drink until " + (birthYear + 21) + "!\n");         
+               " more years until " + (birthYear + 21) + "to drink!\n");         
    }
 }
