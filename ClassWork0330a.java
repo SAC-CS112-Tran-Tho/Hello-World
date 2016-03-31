@@ -3,6 +3,7 @@
 package classwork03.pkg30a;
 
 import java.util.Scanner;
+import java.util.Calendar;
 
 public class ClassWork0330a 
 {  
@@ -10,10 +11,11 @@ public class ClassWork0330a
    {
       Scanner input = new Scanner (System.in);
       
-      int thisYear = 2016;
       int birthYear;
       int userAge;
       String name;
+      
+      Calendar thisYear = Calendar.getInstance();
       
       System.out.print("Enter your name: ");
       name = input.nextLine();
@@ -21,7 +23,7 @@ public class ClassWork0330a
       System.out.print("Enter your birth year: ");
       birthYear = input.nextInt();
       
-      userAge = thisYear - birthYear;
+      userAge = thisYear.get(Calendar.YEAR) - birthYear;
       
       System.out.printf("Hello, " + name + ", you're " + userAge + " years-old today!\n");
    }
