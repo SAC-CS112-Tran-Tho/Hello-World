@@ -1,0 +1,18 @@
+
+package exam2car;
+
+public class Exam2Car
+{
+   public static void main(String[] args)
+   {
+      Automobile truck = new Automobile (2007, "Ford", "F150", "white", "Truck", 20, 3, 40.5);   
+      System.out.println(truck.About());
+      
+      Automobile van = new Automobile (2015, "Honda", "Odyssey", "grey", "Van", 45, 4, 55.7);
+      System.out.println(van.About());
+      
+      Automobile car = new Automobile (2016, "Tesla", "Model X", "black", "Sport Car", 80, 6, 103.5); 
+      System.out.println(car.About());
+   }
+   
+}
