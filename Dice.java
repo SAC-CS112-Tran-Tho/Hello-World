@@ -1,48 +1,71 @@
-// Dice
-package dice;
 
-import java.util.Scanner;
+package classwork0503a;
 
+import javax.swing.JOptionPane; // imports that makes Java option Panels implementation possible
+
+//starts of class Dice
 public class Dice 
 {
-   public static void main(String[] args) 
-   {
-      Scanner input = new Scanner (System.in);
-      
-      String guess;
-      int diceRoll;
-      String dicePlay;
-      
-      diceRoll = 1 +(int)(Math.random()*6);
-      
-      System.out.print("Let's roll a dice. Do you think its odd or even?: ");
-      guess = input.next();
-      
-      if ((diceRoll == 2) || (diceRoll == 4) || (diceRoll == 6))
-      {
-         dicePlay = "even";
-      }
-      else //if ((diceRoll == 1) && (diceRoll == 3) && (diceRoll == 5))
-      {
-         dicePlay = "odd";
-      }
-      
-      System.out.printf("After rolling the die, the number was " + diceRoll + 
-              " which makes it " + dicePlay + "!\n");
-      
-      if (guess.equals("even") && dicePlay.equals("even"))
-      {
-         System.out.print("Its even! You are correct!\n");
-      }
-      else if (guess.equals("odd") && dicePlay.equals("odd"))
-      {
-         System.out.print("Its odd! You are correct!\n");
-      }
-      else
-      {
-         System.out.print("You are wrong!\n");
-      }
-      
-   }
-   
+	
+	//declarations
+	int diceNumber;
+	int number;
+	int bounces;
+	static int numberValue;
+	
+	public static void OneThrow()
+	{
+		numberValue = (int)( 1 + Math.random()*6);
+		
+		JOptionPane.showMessageDialog(null,"The current number is " + numberValue);	
+
+	}
+	
+	// Constructor
+	// bounceNumber is the number of bounces from the main program
+	
+	public Dice (int bounceNumber)
+	{
+		bounces = bounceNumber;
+	}
+	
+	// performing the dice function of generating random number from 1 to 6
+	public int Throw(int dices, int bounces) {
+		
+	JOptionPane.showMessageDialog(null,"The current bounces are " + bounces);	
+	
+	int totalValue = 0;
+	
+	for (int i = 0; i < dices; i++)
+	{
+	// if the bounces is 1
+	if(bounces == 1){
+	
+		int random1 = (1 + (int) (Math.random() * 6));
+
+	}
+	// if the bounces are 2
+	else {
+		int number1 = 0;
+		for (int j = 0; j < bounces; j++)
+
+		{
+			number1 = number1 + (1+(int)(Math.random()*6)); 
+		}
+		
+		totalValue = (number1)/bounces;
+	}
+	
+	number = number + totalValue;
+	
+	}
+	 return number;
+	}
+	
+	public int Value()
+	{
+		diceNumber = number;
+		return diceNumber;
+	}
 }
+
