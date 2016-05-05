@@ -1,6 +1,74 @@
 
 package exam2car;
 
+public class Automobile
+{
+   private int year = 0;
+   private String make = null;
+   private String model = null;
+   private String color = null;
+   private String name = null;
+   private int currentSpeed = 0;
+   double distance = 0.0;
+   private int gears = 0;
+   
+    public Automobile (int year, String make, String model, String color, String name, int speed, int trans, double distance)
+   {
+      this.year = year;
+      this.make = make;
+      this.model = model;
+      this.color = color;
+      this.name = name;
+      this.currentSpeed = speed;
+      this.distance = distance;
+      gears = trans;
+   }
+   public void SetYear(int y)
+   {
+      year = y;
+   }
+   public void SetMake(String m)
+   {
+      make = m;
+   }
+   public void SetModel(String mo)
+   {
+      model = mo;
+   }
+   public void SetColor(String c)
+   {
+      color = c;
+   }
+   public void SetName(String n)
+   {
+      name = n;
+   }
+   public void SetTransmission(int t)
+   {
+      gears = t;
+   }
+   public void SetOperatingCycle(int oc)
+   {
+      oc = gears += 1;
+   }
+   public void SetCurrentSpeed(int s)
+   {
+      s = gears * 10;
+   }
+   public void SetDistanceTravel(int dt)
+   {
+      dt = currentSpeed/10;
+   }
+   public String About()
+   {
+      String description =
+      String.format(name + ": " + gears + " gears.");
+      return description;
+   }
+}
+
+package exam2car;
+
 public class Exam2Car
 {
    public static void main(String[] args)
