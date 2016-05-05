@@ -62,7 +62,7 @@ public class Automobile
    public String About()
    {
       String description =
-      String.format(name + ": " + gears + " gears.");
+      String.format(name + ": " + gears + " gears." "At gear" + oc +", the car is going " + s + " mph after " + dt + " miles.\n");
       return description;
    }
 }
