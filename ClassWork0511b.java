@@ -11,6 +11,11 @@ public class TripleDice extends Dice
       randomNum=(super.Throw()+super.Throw()+super.Throw())/3;
       return randomNum;
    }
+   
+   public String toString()
+   {
+      return "We rolled 3 dice and the average is: " + Throw();
+   }
 }
 
 
@@ -46,6 +51,6 @@ public class ClassWork0511a
    {
       TripleDice dice = new TripleDice();
       
-      System.out.printf("We rolled 3 dice and the average is: %d\n", dice.Throw());
+      System.out.println(dice);
    }
 }
