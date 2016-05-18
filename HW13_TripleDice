@@ -14,6 +14,8 @@ public class TripleDice extends Dice
    
    public String toString()
    {
+   // This means everytime you use toString, you get a new number...do you want that?
+   
       return "We rolled 3 dice and the average is: " + Throw();
    }
    
@@ -93,7 +95,9 @@ public class ClassWork0511a
             System.out.println("Creating copy of this object using Clone method:");
             isMatch = dice.equals(dice.clone());
             System.out.println("Copy " + dice.clone());
-            
+            // Try one of these
+            // if (isMatch)
+            // if (dice.equals(dice.clone()))
             if (isMatch == true)
             {
                System.out.println("They match!");
