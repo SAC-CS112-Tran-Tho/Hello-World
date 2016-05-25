@@ -1,71 +1,38 @@
 
-package classwork0503a;
+package classwork05.pkg18a;
 
-import javax.swing.JOptionPane; // imports that makes Java option Panels implementation possible
-
-//starts of class Dice
-public class Dice 
+public class Dice implements RandomNumber
 {
-	
-	//declarations
-	int diceNumber;
-	int number;
-	int bounces;
-	static int numberValue;
-	
-	public static void OneThrow()
-	{
-		numberValue = (int)( 1 + Math.random()*6);
-		
-		JOptionPane.showMessageDialog(null,"The current number is " + numberValue);	
-
-	}
-	
-	// Constructor
-	// bounceNumber is the number of bounces from the main program
-	
-	public Dice (int bounceNumber)
-	{
-		bounces = bounceNumber;
-	}
-	
-	// performing the dice function of generating random number from 1 to 6
-	public int Throw(int dices, int bounces) {
-		
-	JOptionPane.showMessageDialog(null,"The current bounces are " + bounces);	
-	
-	int totalValue = 0;
-	
-	for (int i = 0; i < dices; i++)
-	{
-	// if the bounces is 1
-	if(bounces == 1){
-	
-		int random1 = (1 + (int) (Math.random() * 6));
-
-	}
-	// if the bounces are 2
-	else {
-		int number1 = 0;
-		for (int j = 0; j < bounces; j++)
-
-		{
-			number1 = number1 + (1+(int)(Math.random()*6)); 
-		}
-		
-		totalValue = (number1)/bounces;
-	}
-	
-	number = number + totalValue;
-	
-	}
-	 return number;
-	}
-	
-	public int Value()
-	{
-		diceNumber = number;
-		return diceNumber;
-	}
-}
-
+   private int randomNum;
+   private int counter = 0;
+   
+   public Dice()
+   {      
+      Throw();
+   } // end Dice constructor
+   
+   @Override
+   public void Throw()
+   {
+      randomNum = ((int)(Math.random()*6)+1);
+      counter++;
+   }
+    
+   @Override
+   public int getRandomNumber()
+   {
+      return randomNum; // generate a random number
+   }
+   
+   @Override
+   public int getHistory()
+   {
+      return counter;     // counts the number of times played
+   }
+   
+   @Override
+   public String toString()
+   {
+      return String.format("%s: %d\n%s %d %s\n", "The random number is", getRandomNumber(), "You played", getHistory(), "times.");
+   }
+} 
