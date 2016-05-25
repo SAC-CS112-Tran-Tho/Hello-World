@@ -1,0 +1,159 @@
+
+package classwork05.pkg18a;
+
+public interface RandomNumber
+{
+   int getRandomNumber();     // returns a random number; no implementation
+   int getHistory();          // returns number of tries; no implementation
+   void Throw();              // generates number of tries for history and random number
+}  // end interface RandomNumber
+
+
+package classwork05.pkg18a;
+
+public class Dice implements RandomNumber
+{
+   private int randomNum;
+   private int counter = 0;
+   
+   public Dice()
+   {      
+      Throw();
+   } // end Dice constructor
+   
+   @Override
+   public void Throw()
+   {
+      randomNum = ((int)(Math.random()*6)+1);
+      counter++;
+   }
+    
+   @Override
+   public int getRandomNumber()
+   {
+      return randomNum; // generate a random number
+   }
+   
+   @Override
+   public int getHistory()
+   {
+      return counter;     // counts the number of times played
+   }
+   
+   @Override
+   public String toString()
+   {
+      return String.format("%s: %d\n%s %d %s\n", "The random number is", getRandomNumber(), "You played", getHistory(), "times.");
+   }
+} 
+
+
+package classwork05.pkg18a;
+
+public class Card implements RandomNumber
+{
+   private int cardRank;
+   private int counter = 0;
+   
+   public Card()
+   {      
+      Throw();
+   }
+   
+   @Override
+   public void Throw()
+   {
+      cardRank = ((int)(Math.random()*13)+1);
+      counter++;
+   }
+    
+   public String cardRankToFace(int rank)
+   {
+      switch (rank)
+      {
+         case 1:
+            return "Ace";
+         case 2:
+            return "Two";
+         case 3:
+            return "Three";
+         case 4:
+            return "Four";
+         case 5:
+            return "Five";
+         case 6:
+            return "Six";
+         case 7:
+            return "Seven";
+         case 8:
+            return "Eight";
+         case 9:
+            return "Nine";
+         case 10:
+            return "Ten";
+         case 11:
+            return "Jack";
+         case 12:
+            return "Queen";
+         case 13:
+            return "King";
+         default:
+            return null;
+      }
+   }
+   
+   @Override
+   public int getRandomNumber()
+   {
+      return cardRank;
+   }
+   
+   @Override
+   public int getHistory()
+   {
+      return counter;
+   }
+   
+   @Override
+   public String toString()
+   {
+      return String.format("%s: %s\n%s %d %s\n", "Your random card is", cardRankToFace(getRandomNumber()), "You played", getHistory(), "times.");
+   }
+   
+}
+
+
+package classwork05.pkg18a;
+
+import java.util.Scanner;
+
+public class ClassWork0518a
+{
+   public static void main(String[] args)
+   {
+      Scanner input = new Scanner (System.in);
+       
+      char answer = '\n';
+      
+      //  2-element RandomNumber array
+      RandomNumber[] randomNumber = new RandomNumber[4];
+      
+      randomNumber[0] = new Dice();
+      randomNumber[1] = new Card();
+      randomNumber[2] = new Dice();
+      randomNumber[3] = new Card();
+      
+      do {
+         for(RandomNumber currentRandomNumber : randomNumber)
+         {
+            System.out.println(currentRandomNumber.toString());
+           // currentRandomNumber.Throw();
+         }
+      
+         System.out.print("Do you want to continue? (y or n): ");
+         answer = input.next(".").charAt(0);
+         System.out.print("\n");
+         
+      } while (answer == 'y'); 
+   }   
+}
