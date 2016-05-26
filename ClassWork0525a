@@ -1,0 +1,66 @@
+
+package classwork05.pkg25b;
+
+public class Dice implements Runnable
+{
+   private int randomNum;
+   private int max = 0;
+   private int counter = 0;
+   
+   public Dice(int max)
+   {      
+      this.max = max;
+   } // end Dice constructor
+
+   public void Throw()
+   {
+      randomNum = ((int)(Math.random()*6)+1);
+      counter++;
+   }
+    
+   public int getRandomNumber()
+   {
+      return randomNum; // generate a random number
+   }
+
+   public int getHistory()
+   {
+      return counter;     // counts the number of times played
+   }
+   
+   @Override
+   public void run()
+   {
+      String thread = Thread.currentThread().getName();
+      
+      for (long i = 1; i < max; i++)
+      {
+         Throw();
+         System.out.printf("Thread: %s, Dice is: %d, Count is: %d %n", thread, randomNum, counter);
+      }
+   }
+}
+
+
+package classwork05.pkg25b;
+
+import java.util.Scanner;
+
+public class ClassWork0525b
+{
+ public static void main(String[] args)
+   {
+      int counter = 0;
+      System.out.println("Start");
+      	for (int i = 0; i < 1; i++) 
+            {
+		      Runnable T1 = new Dice(25);
+		      Thread worker = new Thread(T1);
+		      // We can set the name of the thread
+		      worker.setName(String.valueOf(10));
+		      // Start the thread, never call method run() direct
+		      worker.start();
+            }
+         System.out.println("Complete");
+   }   
+}
