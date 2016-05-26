@@ -1,0 +1,231 @@
+
+package exam2car;
+
+public interface Drive
+{
+   void Drive(int Cycle);
+}
+
+
+package exam2car;
+
+public abstract class Automobile implements Drive
+{
+   private int year = 0;
+   private String make = null;
+   private String model = null;
+   private String color = null;
+   private String name = null;
+   private int numberOfGears = 0;
+   private double currentSpeed = 0.0;
+   private int operatingCycle = 0;
+   private int currentGear = 0;
+   private double distance = 0.0;
+   
+    public Automobile (int year, String make, String model, String color, String name, int gear)
+   {
+      this.year = year;
+      this.make = make;
+      this.model = model;
+      this.color = color;
+      this.name = name;
+      numberOfGears = gear;
+   }
+
+    public void setYear(int year)
+    {
+       this.year = year;
+    }
+    public void setMake(String make)
+    {
+       this.make = make;
+    }
+    public void setModel(String model)
+    {
+       this.model = model;
+    }
+    public void setColor(String color)
+    {
+       this.color = color;
+    }
+    public void setName(String name)
+    {
+       this.name = name;
+    }
+    public void setNumberOfGears(int gear)
+    {
+       numberOfGears = gear;
+    }
+    public int getYear()
+    {
+       return year;
+    }
+    public String getMake()
+    {
+       return model;
+    }
+    public String getColor()
+    {
+       return color;
+    }
+    public int getNumberOfGears()
+    {
+       return numberOfGears;
+    }
+    public void setOperatingCycle(int num)
+    {
+       operatingCycle = num;
+    }
+    public int getOperatingCycle()
+    {
+       return operatingCycle;
+    }
+    public void increaseGear()
+    {
+       currentGear++;
+    }
+    public double getDistanceTravel()
+    {
+       return distance;
+    }
+    public void setDistanceTraveled (double travel)
+    {
+       distance = travel;
+    }
+    public void setCurrentGear(int c)
+    {
+       currentGear = c;
+    }
+    public int getGear()
+    {
+       return currentGear;
+    }
+    public double getSpeed()
+    {
+       return currentSpeed;
+    }
+    public void setSpeed(double s)
+    {
+       currentSpeed = s;
+    }
+    public String about()
+    {
+       String description =
+       String.format("\nYear: %d, Make: %s, Model: %s, Color: %s, Name: %s, Num of Gears: %d, Op Cycle: %d,"
+				+ " Current Gear: %d, Current Speed: %.0f, Distance Traveled: %.2f", 
+				year, make, model, color, name, numberOfGears, operatingCycle, currentGear, currentSpeed, distance);
+       return description;
+    }
+}
+
+
+package exam2car;
+
+public class SportCar extends Automobile
+{
+   private double speed = 0.0;
+   private double currentSpeed = 0.0;
+   
+   public SportCar (int year, String make, String model, String color, String name, int numOfGears, double speed)
+   {
+      super(year, make, model, color, name, numOfGears);
+      this.speed = speed;
+   }
+   
+   @Override
+   public void Drive(int operatingCycle)
+   {
+      setOperatingCycle(operatingCycle);
+      if(getGear() < getNumberOfGears())
+      {
+         increaseGear();
+         setSpeed(getGear()*10.0);
+      }
+      else if (getGear() == getNumberOfGears())
+      {
+         setSpeed((getGear()*10.0)*(2 + speed));
+         currentSpeed = speed;
+      }
+      setDistanceTraveled (getDistanceTravel()+(getSpeed()/60.0));          
+   }
+   
+   @Override
+   public String toString()
+   {
+       String description =
+       String.format("%s, Speed of your Sport Car: %.2f %%", super.toString(), currentSpeed*100);
+       return description;
+   }
+}
+
+
+package exam2car;
+
+public class MiniVan extends Automobile
+{
+   private double speed = 0.0;
+   private double currentSpeed = 0.0;
+   
+   public MiniVan(int year, String make, String model, String color, String name, int numOfGears, double speed)
+   {
+      super(year, make, model, color, name, numOfGears);
+      this.speed = speed;
+   }
+   
+   @Override
+   public void Drive(int operatingCycle)
+   {
+      setOperatingCycle(operatingCycle);
+      if(getGear() < getNumberOfGears())
+      {
+         increaseGear();
+         setSpeed(getGear()*10.0);
+      }
+      else if (getGear() == getNumberOfGears())
+      {
+         setSpeed((getGear()*10.0)*(2 + speed));
+         currentSpeed = speed;
+      }
+      setDistanceTraveled (getDistanceTravel()+(getSpeed()/60.0));          
+   }
+   
+   @Override
+   public String toString()
+   {
+       String description =
+       String.format("%s, Speed of your Mini-van: %.2f %%", super.toString(), currentSpeed*100);
+       return description;
+   }
+}
+
+
+package exam2car;
+
+import java.util.Scanner;
+
+public class Exam2Car
+{
+   public static void main(String[] args)
+   {
+      Scanner input = new Scanner (System.in);
+      Automobile[] auto = new Automobile[2];
+      auto[0] = new SportCar(2016, "Nissan", "GTR", "White", "R35", 6, 0.76);
+      auto[1] = new MiniVan(2016, "Honda", "Odyssey", "Black", "Tank", 5, 0.45);
+      
+      int cycle = 0;
+      for (Automobile currentAuto : auto)
+      {
+         System.out.printf("%s %s : ", "Please input the number of cycles of", currentAuto.getClass().getName());
+         cycle = input.nextInt();
+         currentAuto.Drive(cycle);
+         
+         for (int i = 1; i < 13; i++)
+         {
+            currentAuto.Drive(cycle);
+            System.out.printf("%.2f : %d", currentAuto.getSpeed(), currentAuto.getGear());
+            System.out.println(currentAuto);
+         }
+      }
+   
+   }
+}
