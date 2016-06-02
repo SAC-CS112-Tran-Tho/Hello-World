@@ -5,12 +5,14 @@ public class Fly
 {
    private int airSpeedMPH;
    private int elevationPerMinute;
-   private int flightTime;
+   private String name;
    
-   public Fly()
+   public Fly(String name, int airSpeedMPH, int elevationPerMinute)
    // initial time (flightTime) is set to 1 minute
    {
-      flightTime = 1;
+      this.name = name;
+      this.airSpeedMPH = airSpeedMPH;
+      this.elevationPerMinute = elevationPerMinute;
    }
    
    public void setAirSpeed (int airSpeedMPH)
@@ -23,5 +25,17 @@ public class Fly
    // elevationPerMinute is the elevation gain per minute measure by feet (FPM) by the flying object
    {
       this.elevationPerMinute = elevationPerMinute;
+   }
+   
+   public void setName(String name)
+   {
+      this.name = name;
+   }
+   
+   public String About()
+   {
+      String description = 
+      String.format(name + ": " + airSpeedMPH + " MPH, " + elevationPerMinute + " FPM");
+      return description;
    }
 }
