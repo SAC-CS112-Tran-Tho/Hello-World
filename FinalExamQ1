@@ -1,0 +1,27 @@
+
+package finalexam;
+
+public class Fly
+{
+   private int airSpeedMPH;
+   private int elevationPerMinute;
+   private int flightTime;
+   
+   public Fly()
+   // initial time (flightTime) is set to 1 minute
+   {
+      flightTime = 1;
+   }
+   
+   public void setAirSpeed (int airSpeedMPH)
+   // airSpeedMPH is the distance traveled per hour (MPH) by the flying object
+   {
+      this.airSpeedMPH = airSpeedMPH;
+   }
+   
+   public void setAltimeter (int elevationPerMinute)
+   // elevationPerMinute is the elevation gain per minute measure by feet (FPM) by the flying object
+   {
+      this.elevationPerMinute = elevationPerMinute;
+   }
+}
