@@ -1,0 +1,24 @@
+package finalexam;
+
+public class FinalExam
+{
+ public static void main(String[]args)
+ {
+    System.out.println("After 30 minutes of flying...");
+    
+    Fly Bird = new Fly ("Bird", 10, 3);
+    System.out.println(Bird.About());
+    
+    Fly Airplane = new Fly ("Airplane", 450, 50);
+    System.out.println(Airplane.About());
+    
+    Fly JetPlane = new Fly ("JetPlane", 1000, 120);
+    System.out.println(JetPlane.About());
+    
+    Fly Missle = new Fly ("Missle", 2500, 800);
+    System.out.println(Missle.About());
+    
+    Fly Superman = new Fly ("Superman", 3500, 500);
+    System.out.println(Superman.About());    
+ }
+}
